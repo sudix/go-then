@@ -18,19 +18,17 @@ Usage
 ===================
 
 ```go
-func ExampleExec() {
-	c1 := gothen.Cmd{"git", "log", "--oneline"}
-	c2 := gothen.Cmd{"grep", "first import"}
-	c3 := gothen.Cmd{"wc", "-l"}
+c1 := gothen.Cmd{"git", "log", "--oneline"}
+c2 := gothen.Cmd{"grep", "first import"}
+c3 := gothen.Cmd{"wc", "-l"}
 
-	out, err := c1.Then(c2).Then(c3).Exec()
+out, err := c1.Then(c2).Then(c3).Exec()
 
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(string(out))
+if err != nil {
+	log.Fatal(err)
 }
+
+fmt.Println(string(out))
 ```
 
 License
